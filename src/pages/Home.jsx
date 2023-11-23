@@ -1,6 +1,7 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/loader'
+import Island from '../models/island'
 
 const home = () => {
   return (
@@ -13,8 +14,12 @@ const home = () => {
         camera={{ near: 0.1, far: 1000}}
       >
         <Suspense fallback={<Loader/>}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
+          <directionalLight />
+          <ambientLight />
+          <pointLight />
+          <spotLight />
+          <hemisphereLight />
+          <Island/>
         </Suspense>
       </Canvas>
     </section>
